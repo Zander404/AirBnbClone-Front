@@ -9,7 +9,7 @@ interface SignupModalStore {
 
 
 const useSignupModal = create<SignupModalStore>((set) => ({
-    isOpen: true,
+    isOpen: false,
     open: () => set({isOpen: true}),
     close: () => set({isOpen: false})
 }))
