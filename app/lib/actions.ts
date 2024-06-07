@@ -46,3 +46,10 @@ export async function getUserId() {
     
 }
 
+
+export async function getAcessToken(){
+  let acessToken = cookies().get('session_access_token')?.value;
+
+  return acessToken
+}
+
