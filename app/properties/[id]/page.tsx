@@ -2,11 +2,12 @@ import ReservationSideBar from "@/app/components/properties/ReservationSideBar";
 import apiService from "@/app/services/apiServices";
 import Image from "next/image";
 import { getUserId } from "@/app/lib/actions";
+import Link from "next/link";
 
 const PropertyDetailPage = async ({ params }: { params: { id: string } }) => {
   const property = await apiService.get(`/api/properties/${params.id}/`);
   const userId = await getUserId();
-  console.log("UserId", userId);
+
   return (
     <main className="max-w-[1500px] mx-auto px-6 pb-6">
       <div className="w-full h-[64vh] mb-4 overflow-hidden rounded-xl relative ">
@@ -26,7 +27,9 @@ const PropertyDetailPage = async ({ params }: { params: { id: string } }) => {
           </span>
           <hr />
 
-          <div className="py-6 flex items-center space-x-4">
+          <Link
+            href={`/landlords/${property.landlord.id}`}
+           className="py-6 flex items-center space-x-4">
             <Image
               // src={property.avatar_url}
               src={'/profile_pic_1.jpg'}
@@ -39,7 +42,7 @@ const PropertyDetailPage = async ({ params }: { params: { id: string } }) => {
             <p>
               <strong> {property.landlord.name}</strong> is your host
             </p>
-          </div>
+          </Link>
 
           <hr />
           <p className="mt-6 text-lg">{property.description}</p>
@@ -53,3 +56,4 @@ const PropertyDetailPage = async ({ params }: { params: { id: string } }) => {
 };
 
 export default PropertyDetailPage;
+

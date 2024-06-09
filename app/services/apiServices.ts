@@ -53,7 +53,6 @@ const apiService = {
     console.log("post", url, data);
 
     const token = await getAcessToken();
-    console.log(token);
 
     return new Promise((resolve, reject) => {
       fetch(`${process.env.NEXT_PUBLIC_API_HOST}${url}`, {
