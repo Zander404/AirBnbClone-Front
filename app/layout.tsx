@@ -7,6 +7,7 @@ import LoginModal from "./components/modals/LoginModal";
 import SignupModal from "./components/modals/SignModal";
 import AddProperty from "./components/modals/AddPropertyModal";
 import AddPropertyModal from "./components/modals/AddPropertyModal";
+import SearchModal from "./components/modals/SearchModal";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -29,7 +30,9 @@ export default function RootLayout({
       <body className={inter.className}>
         <Navbar />
         <div className="pt-32">{children}</div>
+
         <LoginModal />
+        <SearchModal />
         <SignupModal />
         <AddPropertyModal />
       </body>
